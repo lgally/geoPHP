@@ -112,7 +112,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<string, array<string>>
      */
-    public function providerInvalidWkt()
+    public static function providerInvalidWkt()
     {
         return [
             'empty string' => [''],
@@ -124,7 +124,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerValidPoint()
+    public static function providerValidPoint()
     {
         return [
             [
@@ -195,7 +195,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<array<string>>
      */
-    public function providerInvalidPoint()
+    public static function providerInvalidPoint()
     {
         return [
             [
@@ -242,7 +242,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerValidLineString()
+    public static function providerValidLineString()
     {
         return [
             [
@@ -313,7 +313,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<array<string>>
      */
-    public function providerInvalidLineString()
+    public static function providerInvalidLineString()
     {
         return [
             [
@@ -357,7 +357,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerValidPolygon()
+    public static function providerValidPolygon()
     {
         return [
             [
@@ -431,7 +431,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<string, array<string>>
      */
-    public function providerInvalidPolygon()
+    public static function providerInvalidPolygon()
     {
         return [
             'Polygon no data text' => [
@@ -467,7 +467,7 @@ class WKTReaderTest extends TestCase
      *
      * @return array<array{string, Geometry}>
      */
-    public function providerValidMultiPoint(): array
+    public static function providerValidMultiPoint(): array
     {
         return [
             [
@@ -562,7 +562,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<array<string>>
      */
-    public function providerInvalidMultiPoint()
+    public static function providerInvalidMultiPoint()
     {
         return [
             [
@@ -586,7 +586,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerValidMultiLineString()
+    public static function providerValidMultiLineString()
     {
         return [
             [
@@ -650,7 +650,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<string, array<string>>
      */
-    public function providerInvalidMultiLineString()
+    public static function providerInvalidMultiLineString()
     {
         return [
             'MultiLineString no data text' => [
@@ -677,7 +677,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerValidMultiPolygon()
+    public static function providerValidMultiPolygon()
     {
         return [
             'MultiPolygon empty' => [
@@ -743,7 +743,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<string, array<string>>
      */
-    public function providerInvalidMultiPolygon()
+    public static function providerInvalidMultiPolygon()
     {
         return [
             'MultiPolygon no data text' => [
@@ -782,7 +782,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerValidGeometryCollection()
+    public static function providerValidGeometryCollection()
     {
         return [
             'GeometryCollection empty' => [
@@ -884,7 +884,7 @@ class WKTReaderTest extends TestCase
     /**
      * @return array<string, array<string>>
      */
-    public function providerInvalidGeometryCollection()
+    public static function providerInvalidGeometryCollection()
     {
         return [
             'GeometryCollection no data text' => [

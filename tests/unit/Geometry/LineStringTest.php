@@ -37,7 +37,7 @@ class LineStringTest extends TestCase
     /**
      * @return array<string, array<array<array<int|null>>>>
      */
-    public function providerValidComponents(): array
+    public static function providerValidComponents(): array
     {
         return [
             'empty' =>
@@ -87,7 +87,7 @@ class LineStringTest extends TestCase
     public function testConstructorNonArrayComponentTypeError(): void
     {
         $this->expectException(\TypeError::class);
-        $this->expectErrorMessageMatches('/Argument #?1 .+ type array, string given/');
+        $this->expectExceptionMessageMatches('/Argument #?1 .+ type array, string given/');
 
         // @phpstan-ignore-next-line
         new LineString('foo');
@@ -199,7 +199,7 @@ class LineStringTest extends TestCase
     /**
      * @return array<string, array{mixed, Point}>
      */
-    public function providerCentroid(): array
+    public static function providerCentroid(): array
     {
         return [
             'empty LineString' => [[], new Point()],
@@ -232,13 +232,13 @@ class LineStringTest extends TestCase
         $line = LineString::fromArray($points);
         $centroid = $line->centroid();
 
-        $this->assertEquals($centroidPoint, $centroid);
+        $this->assertEqualsWithDelta($centroidPoint, $centroid, self::DELTA);
     }
 
     /**
      * @return array<string, array{mixed, bool}>
      */
-    public function providerIsSimple(): array
+    public static function providerIsSimple(): array
     {
         return [
                 'simple' =>
@@ -272,7 +272,7 @@ class LineStringTest extends TestCase
     /**
      * @return array<string, array{mixed, bool}>
      */
-    public function providerIsRing(): array
+    public static function providerIsRing(): array
     {
         return [
                 'empty' =>
@@ -303,7 +303,7 @@ class LineStringTest extends TestCase
     /**
      * @return array<array{array<mixed>, float}>
      */
-    public function providerLength(): array
+    public static function providerLength(): array
     {
         return [
                 [[[0, 0], [10, 0]], 10.0],
@@ -331,7 +331,7 @@ class LineStringTest extends TestCase
     /**
      * @return array<array{array<mixed>, float}>
      */
-    public function providerLength3D(): array
+    public static function providerLength3D(): array
     {
         return [
                 [[[0, 0, 0], [10, 0, 10]], 14.142135623731],
@@ -356,7 +356,7 @@ class LineStringTest extends TestCase
     /**
      * @return array<array{array<mixed>, array<string, float>}>
      */
-    public function providerLengths(): array
+    public static function providerLengths(): array
     {
         return [
                 [[[0, 0], [0, 0]], [
@@ -480,7 +480,7 @@ class LineStringTest extends TestCase
     /**
      * @return array<string, array{Geometry, float}>
      */
-    public function providerDistance(): array
+    public static function providerDistance(): array
     {
         return [
             'Point on vertex' =>
@@ -513,7 +513,7 @@ class LineStringTest extends TestCase
     /**
      * @return array<string, array{array<mixed>, array<string, ?float>}>
      */
-    public function providerElevation(): array
+    public static function providerElevation(): array
     {
         return [
             '2D' => [
@@ -566,7 +566,7 @@ class LineStringTest extends TestCase
     /**
      * @return array<array<float>> [tolerance, gain, loss]
      */
-    public function providerElevationGainAndLossByTolerance(): array
+    public static function providerElevationGainAndLossByTolerance(): array
     {
         return [
                 [0.0, 50.0, 30.0],

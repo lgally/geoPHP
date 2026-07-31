@@ -39,7 +39,7 @@ class CurveTest extends TestCase
     /**
      * @return array<string, array<array<array<int|null>>>>
      */
-    public function providerValidComponents(): array
+    public static function providerValidComponents(): array
     {
         return [
             'empty' =>
@@ -122,7 +122,7 @@ class CurveTest extends TestCase
     /**
      * @return array<array{array<mixed>, MultiPoint}>
      */
-    public function providerBoundary(): array
+    public static function providerBoundary(): array
     {
         return [
             'Empty'    => [[], new MultiPoint()],
@@ -148,7 +148,7 @@ class CurveTest extends TestCase
     /**
      * @return array<array{array<mixed>, ?Point, ?Point}>
      */
-    public function providerStartEndPoint(): array
+    public static function providerStartEndPoint(): array
     {
         return [
             'Empty'    => [[], null, null],
@@ -177,7 +177,7 @@ class CurveTest extends TestCase
     /**
      * @return array<array{array<mixed>, bool}>
      */
-    public function providerIsClosed(): array
+    public static function providerIsClosed(): array
     {
         return [
             'Empty'            => [[], false],
@@ -205,7 +205,7 @@ class CurveTest extends TestCase
     /**
      * @return array<array{array<mixed>, bool}>
      */
-    public function providerIsRing(): array
+    public static function providerIsRing(): array
     {
         return [
             'Empty'            => [[], false],

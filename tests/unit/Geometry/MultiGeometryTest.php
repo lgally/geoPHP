@@ -43,7 +43,7 @@ class MultiGeometryTest extends TestCase
     /**
      * @return array<mixed>
      */
-    public function providerIsSimple(): array
+    public static function providerIsSimple(): array
     {
         return [
             'empty' =>

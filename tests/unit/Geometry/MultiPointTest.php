@@ -23,7 +23,7 @@ class MultiPointTest extends TestCase
     /**
      * @return array<string, array<array<?Point>>>
      */
-    public function providerValidComponents(): array
+    public static function providerValidComponents(): array
     {
         return [
             'no components'    => [[]],
@@ -53,7 +53,7 @@ class MultiPointTest extends TestCase
     /**
      * @return array<string, array<mixed>>
      */
-    public function providerInvalidComponents(): array
+    public static function providerInvalidComponents(): array
     {
         return [
             'LineString component' => [[LineString::fromArray([[1,2],[3,4]])]],
@@ -123,7 +123,7 @@ class MultiPointTest extends TestCase
     /**
      * @return array<mixed>
      */
-    public function providerCentroid(): array
+    public static function providerCentroid(): array
     {
         return [
             [[], []],
@@ -149,7 +149,7 @@ class MultiPointTest extends TestCase
     /**
      * @return array{array{array<mixed>, bool}}
      */
-    public function providerIsSimple(): array
+    public static function providerIsSimple(): array
     {
         return [
             [[], true],
@@ -176,7 +176,7 @@ class MultiPointTest extends TestCase
     /**
      * @return array<string, array<int|Point[]>>
      */
-    public function providerNumPoints(): array
+    public static function providerNumPoints(): array
     {
         return [
             'no components'    => [0, []],

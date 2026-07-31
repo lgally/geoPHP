@@ -40,7 +40,7 @@ class MultiCurveTest extends TestCase
     /**
      * @return array<mixed>
      */
-    public function providerValidComponents(): array
+    public static function providerValidComponents(): array
     {
         return [
             'empty' =>
@@ -99,7 +99,7 @@ class MultiCurveTest extends TestCase
     /**
      * @return array<mixed>
      */
-    public function providerIsClosed(): array
+    public static function providerIsClosed(): array
     {
         return [
             'empty' =>
@@ -129,7 +129,7 @@ class MultiCurveTest extends TestCase
     /**
      * @return array<mixed>
      */
-    public function providerBoundary(): array
+    public static function providerBoundary(): array
     {
         return [
             'empty' => [

@@ -32,7 +32,7 @@ class CollectionTest extends TestCase
     /**
      * @return array<array{Geometry[], string}>
      */
-    public function providerConstructorAllowedComponentType(): array
+    public static function providerConstructorAllowedComponentType(): array
     {
         return [
             [[Point::fromArray([1, 2])], Point::class],
@@ -103,7 +103,7 @@ class CollectionTest extends TestCase
     /**
      * @return array<string, array{Geometry[], bool}>
      */
-    public function providerIs3D(): array
+    public static function providerIs3D(): array
     {
         return [
                 '2D' => [[new Point(1, 2)], false],
@@ -131,7 +131,7 @@ class CollectionTest extends TestCase
     /**
      * @return array<array{Geometry[], bool}>
      */
-    public function providerIsMeasured(): array
+    public static function providerIsMeasured(): array
     {
         return [
                 [[new Point()], false],
@@ -176,7 +176,7 @@ class CollectionTest extends TestCase
     /**
      * @return array<array{Geometry[], Geometry[]}>
      */
-    public function providerInvertXY(): array
+    public static function providerInvertXY(): array
     {
         return [
                 [
@@ -238,7 +238,7 @@ class CollectionTest extends TestCase
     /**
      * @return array<array{array<Geometry>, bool}>
      */
-    public function providerIsEmpty(): array
+    public static function providerIsEmpty(): array
     {
         return [
                 [[], true],
@@ -334,7 +334,7 @@ class CollectionTest extends TestCase
     /**
      * @return array<string, array<int|Geometry[]>>
      */
-    public function providerNumPoints(): array
+    public static function providerNumPoints(): array
     {
         return [
             'no components'     => [0, []],
@@ -360,7 +360,7 @@ class CollectionTest extends TestCase
     /**
      * @return array<string, array<int|Geometry[]>>
      */
-    public function providerGetPoints(): array
+    public static function providerGetPoints(): array
     {
         return [
             'no components'     => [[], []],
@@ -412,7 +412,7 @@ class CollectionTest extends TestCase
     /**
      * @return array<string, array{Geometry[], Geometry, ?float}>
      */
-    public function providerDistance(): array
+    public static function providerDistance(): array
     {
         return [
             "collection of points to point" => [

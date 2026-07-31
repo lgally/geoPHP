@@ -81,7 +81,7 @@ class WKTWriterTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerPoint(): array
+    public static function providerPoint(): array
     {
         return [
             [
@@ -114,7 +114,7 @@ class WKTWriterTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerLineString(): array
+    public static function providerLineString(): array
     {
         return [
             [
@@ -147,7 +147,7 @@ class WKTWriterTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerPolygon(): array
+    public static function providerPolygon(): array
     {
         return [
             [
@@ -205,7 +205,7 @@ class WKTWriterTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerMultiPoint(): array
+    public static function providerMultiPoint(): array
     {
         return [
             [
@@ -246,7 +246,7 @@ class WKTWriterTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerMultiLineString(): array
+    public static function providerMultiLineString(): array
     {
         return [
             [
@@ -288,7 +288,7 @@ class WKTWriterTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerMultiPolygon(): array
+    public static function providerMultiPolygon(): array
     {
         return [
             'MultiPolygon empty' => [
@@ -341,7 +341,7 @@ class WKTWriterTest extends TestCase
     /**
      * @return array<array{string, Geometry}>
      */
-    public function providerGeometryCollection(): array
+    public static function providerGeometryCollection(): array
     {
         return [
             'GeometryCollection empty' => [

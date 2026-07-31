@@ -36,7 +36,7 @@ class PolygonTest extends TestCase
     /**
      * @return array<string, mixed>
      */
-    public function providerConstructorValidComponents(): array
+    public static function providerConstructorValidComponents(): array
     {
         return [
             'empty' =>
@@ -74,7 +74,7 @@ class PolygonTest extends TestCase
     public function testConstructorNonArrayComponentTypeError(): void
     {
         $this->expectException(\TypeError::class);
-        $this->expectErrorMessageMatches('/Argument #?1 .+ type array, string given/');
+        $this->expectExceptionMessageMatches('/Argument #?1 .+ type array, string given/');
 
         // @phpstan-ignore-next-line
         new Polygon('foo');
@@ -86,7 +86,7 @@ class PolygonTest extends TestCase
     public function testConstructorEmptyComponent(): void
     {
         $this->expectException(InvalidGeometryException::class);
-        $this->expectErrorMessageMatches('/Cannot create a collection of empty LineStrings/');
+        $this->expectExceptionMessageMatches('/Cannot create a collection of empty LineStrings/');
 
         new Polygon([new LineString()]);
     }
@@ -94,7 +94,7 @@ class PolygonTest extends TestCase
     /**
      * @return array<string, array<LineString>>
      */
-    public function providerConstructorFewPoints(): array
+    public static function providerConstructorFewPoints(): array
     {
         return [
             'two points'       => [LineString::fromArray([[1, 2], [2, 3]])],
@@ -131,7 +131,7 @@ class PolygonTest extends TestCase
     /**
      * @return array<mixed>
      */
-    public function providerValidComponents(): array
+    public static function providerValidComponents(): array
     {
         $ring1Points = [[0, 0], [0, 10], [10, 10], [10, 0], [0, 0]];
         $ring2Points = [[1, 1], [1, 9], [5, 9], [1, 1]];

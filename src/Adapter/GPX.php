@@ -156,13 +156,13 @@ class GPX implements GeoAdapter
     /**
      * @param DOMNode $xml
      * @param string $nodeName
-     * @return DOMNode[]
+     * @return DOMElement[]
      */
     protected function childElements(DOMNode $xml, string $nodeName = ''): array
     {
         $children = [];
         foreach ($xml->childNodes as $child) {
-            if ($child->nodeName == $nodeName) {
+            if ($child instanceof DOMElement && $child->nodeName == $nodeName) {
                 $children[] = $child;
             }
         }
@@ -187,7 +187,9 @@ class GPX implements GeoAdapter
         $point->setData($this->parseNodeProperties($node, $this->gpxTypes->get($node->nodeName . 'Type')));
         if ($node->nodeName === 'rtept' && $this->parseGarminRpt) {
             foreach ($this->xpath->query('.//gpx:extensions/gpxx:RoutePointExtension/gpxx:rpt', $node) as $element) {
-                $this->trackFromRoute[] = $this->parsePoint($element);
+                if ($element instanceof DOMElement) {
+                    $this->trackFromRoute[] = $this->parsePoint($element);
+                }
             }
         }
         return $point;

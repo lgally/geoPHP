@@ -7,7 +7,7 @@
 
     <!-- Default command line arguments -->
     <arg name="basepath" value="."/>
-    <arg name="cache" value="build/cache/phpcs.cache"/>
+    <arg name="cache" value=".phpcs.cache"/>
     <arg name="colors"/>
     <arg name="parallel" value="50"/>
     <arg name="report" value="full,summary"/>

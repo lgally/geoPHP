@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.com/funiq/geoPHP.svg?branch=development)](https://travis-ci.com/funiq/geoPHP)
-[![Coverage Status](https://coveralls.io/repos/github/funiq/geoPHP/badge.svg?branch=development)](https://coveralls.io/github/funiq/geoPHP?branch=development)
+[![CI](https://github.com/gally90/geoPHP/actions/workflows/ci.yml/badge.svg?branch=development)](https://github.com/gally90/geoPHP/actions/workflows/ci.yml)
 
 GeoPHP is a open-source native PHP library for doing geometry operations. It is a fork of famous [geoPHP](https://github.com/phayes/geoPHP) library by Patrick Hayes.
 
@@ -19,6 +18,11 @@ See the _getting started_ section below for references and examples of everythin
 Forks and contributions are welcome. Please open [issues](https://github.com/funiq/geoPHP/issues), send [pull](https://github.com/funiq/geoPHP/pulls) requests and I will merge them into the main branch.
 
 ## Getting Started
+
+### Requirements
+
+- PHP 8.3 or newer
+- The DOM extension for XML-based formats such as GPX and KML
 
 ### Example usage
 

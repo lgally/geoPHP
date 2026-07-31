@@ -27,7 +27,7 @@ abstract class Curve extends Collection
      */
     public function __construct(array $components = [])
     {
-        if (is_array($components) && count($components) == 1) {
+        if (count($components) == 1) {
             throw new InvalidGeometryException("Cannot construct a " . static::class . " with a single point");
         }
 

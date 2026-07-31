@@ -2,6 +2,7 @@
 /build
 composer.phar
 .phpunit.result.cache
+.phpcs.cache
 phpstan.neon
 
 # JetBrains (PhpStorm)

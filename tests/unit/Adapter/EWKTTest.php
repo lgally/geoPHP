@@ -45,7 +45,7 @@ class EWKTTest extends TestCase
     /**
      * @return array<array{string, int}>
      */
-    public function providerReadValidEwkt(): array
+    public static function providerReadValidEwkt(): array
     {
         return [
             [
@@ -76,7 +76,7 @@ class EWKTTest extends TestCase
     /**
      * @return array{array{string, Geometry, int}}
      */
-    public function providerWriteValidEwkt()
+    public static function providerWriteValidEwkt()
     {
         return [
             [

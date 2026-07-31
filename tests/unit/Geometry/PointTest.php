@@ -23,7 +23,7 @@ class PointTest extends TestCase
     /**
      * @return array<string, array<int|float>>
      */
-    public function providerValidCoordinatesXY(): array
+    public static function providerValidCoordinatesXY(): array
     {
         return [
             'null coordinates' => [0, 0],
@@ -59,7 +59,7 @@ class PointTest extends TestCase
     /**
      * @return array<string, array<int|float>>
      */
-    public function providerValidCoordinatesXYZorXYM(): array
+    public static function providerValidCoordinatesXYZorXYM(): array
     {
         return [
             'null coordinates' => [0, 0, 0],
@@ -123,7 +123,7 @@ class PointTest extends TestCase
     /**
      * @return array<string, array<int|float>>
      */
-    public function providerValidCoordinatesXYZM(): array
+    public static function providerValidCoordinatesXYZM(): array
     {
         return [
             'null coordinates' => [0, 0, 0, 0],
@@ -184,7 +184,7 @@ class PointTest extends TestCase
     /**
      * @return array<string, array<?int>>
      */
-    public function providerIsEmpty(): array
+    public static function providerIsEmpty(): array
     {
         return [
             'no coordinates'     => [],
@@ -217,10 +217,29 @@ class PointTest extends TestCase
     }
 
     /**
-     * @dataProvider providerValidCoordinatesXY
-     * @dataProvider providerValidCoordinatesXYZorXYM
-     * @dataProvider providerValidCoordinatesXYZM
-     * @dataProvider providerIsEmpty
+     * @return array<string, array<int|float|null>>
+     */
+    public static function providerFromArray(): array
+    {
+        $dataSets = [];
+        $providers = [
+            'XY' => self::providerValidCoordinatesXY(),
+            'XYZ/XYM' => self::providerValidCoordinatesXYZorXYM(),
+            'XYZM' => self::providerValidCoordinatesXYZM(),
+            'empty' => self::providerIsEmpty(),
+        ];
+
+        foreach ($providers as $providerName => $providerDataSets) {
+            foreach ($providerDataSets as $dataSetName => $dataSet) {
+                $dataSets[$providerName . ': ' . $dataSetName] = $dataSet;
+            }
+        }
+
+        return $dataSets;
+    }
+
+    /**
+     * @dataProvider providerFromArray
      *
      * @covers ::fromArray
      *
@@ -257,7 +276,7 @@ class PointTest extends TestCase
     /**
      * @return array<string, array<mixed>>
      */
-    public function providerInvalidCoordinates(): array
+    public static function providerInvalidCoordinates(): array
     {
         return [
             'x is null'           => [null, 20],
@@ -309,7 +328,7 @@ class PointTest extends TestCase
     /**
      * @return array<string, array<bool|int|null>>
      */
-    public function providerIs3D(): array
+    public static function providerIs3D(): array
     {
         return [
             'empty point'        => [false],
@@ -339,7 +358,7 @@ class PointTest extends TestCase
     /**
      * @return array<string, array<bool|int|null>>
      */
-    public function providerIsMeasured(): array
+    public static function providerIsMeasured(): array
     {
         return [
             'empty point'               => [false],
@@ -513,7 +532,7 @@ class PointTest extends TestCase
     /**
      * @return array<string, array{Geometry, ?float}>
      */
-    public function providerDistance(): array
+    public static function providerDistance(): array
     {
         return [
             'empty Point' =>
@@ -603,7 +622,7 @@ class PointTest extends TestCase
     /**
      * @return array{array<string>}
      */
-    public function providerMethodsNotValidForPointReturnsNull(): array
+    public static function providerMethodsNotValidForPointReturnsNull(): array
     {
         return [
                 ['zDifference'],
